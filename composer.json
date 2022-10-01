@@ -1,0 +1,28 @@
+{
+    "name": "yarm/servicetools",
+    "description": "An add-on for the YARM Reference Manager Application. Contains servicetools for YARM",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Herbert Van Uffelen",
+            "email": "herbert.van-uffelen@univie.ac.at"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Yarm\\Servicetools\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yarm\\Servicetools\\ServicetoolsServiceProvider"
+            ]
+        }
+    }
+}
