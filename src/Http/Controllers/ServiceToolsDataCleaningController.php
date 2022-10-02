@@ -34,7 +34,7 @@ class ServiceToolsDataCleaningController extends Controller
     public function fileNotFoundList()
     {
         $q = '';
-        return view('servicetools::fileNotFoundlist')->with(self::addFileNotFoundData($q));
+        return view('servicetools::files.fileNotFoundlist')->with(self::addFileNotFoundData($q));
     }
 
     public function commentsOnIllustrationsList()
