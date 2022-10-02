@@ -32,4 +32,15 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=>'dlbt'
 
     Route::post('/confirmPublisher', 'ServiceToolsDataCleaningController@confirmPublisher')
         ->name('confirm_publisher');
+
+    // Get files not found list
+    Route::get('/filesNotFound', 'ServiceToolsDataCleaningController@fileNotFoundList')
+        ->name('files_not_found_list');
+    Route::get('/change_file_names', 'ServiceToolsDataCleaningController@changeFileNames')
+        ->name('change_file_names');
+    Route::post('/change_file', 'ServiceToolsDataCleaningController@changeOneFileName')
+        ->name('change_file');
+
+
+
 });
