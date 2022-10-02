@@ -18,7 +18,7 @@
         </div>
         <div class="card-body">
             {!! Form::open(['id' => 'publisherConfirm', 'action' => 'DataCleaningController@confirmPublisher', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-            @include('Servicetools::refs.inc.publisher_data')
+            @include('servicetools::refs.inc.publisher_data')
             {!! Form::close() !!}
         </div>
     </div>
