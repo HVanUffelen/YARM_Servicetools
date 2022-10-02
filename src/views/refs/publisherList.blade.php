@@ -1,15 +1,13 @@
-@extends('layouts.app')
+@extends('resources.views.layouts.app')
 {{App()->setLocale(Session::get('userLanguage'))}}
 
- @section('content')
-    <a href="{{url('dlbt/dataCleaningManual')}}" class="btn btn-info btn-sm mb-2">@lang('Go to Manual Data Cleaning')</a>
+@section('content')
     <div class="card">
         <div class="card-header">
-            <h3>@lang('Possible Duplicates')
+            <h3>@lang('Publishers')
                 <a title="Info" data-placement="top" data-toggle="popover"
                     data-trigger="hover"
-                    {{-- //TODO : Lang GER --}}
-                    data-content="@lang('Data Cleaning list info')"><i
+                    data-content="@lang('Select the publisher(s) whose names are incorrect and fill in the correct name below.')"><i
                         class="fa fa-info-circle"
                         style="color: grey"></i></a>
             </h3>
@@ -19,9 +17,11 @@
             {!! Form::text('search', '', ['class' => 'form-control', 'placeholder' => __('Search by name')]) !!}
         </div>
         <div class="card-body">
-            @include('adminnames::inc.duplicateNameCleaning_data')
+            {!! Form::open(['id' => 'publisherConfirm', 'action' => 'DataCleaningController@confirmPublisher', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+            @include('refs.inc.publisher_data')
+            {!! Form::close() !!}
         </div>
     </div>
-    <input type="hidden" name="type" id="type" value="{{'checkDupsNames'}}"/>
-    <input type="hidden" name="view" id="view" value="{{'checkDupsNames'}}"/>
+    <input type="hidden" name="type" id="type" value="{{'publishers'}}"/>
+    <input type="hidden" name="view" id="view" value="{{'publishers'}}"/>
 @endsection
