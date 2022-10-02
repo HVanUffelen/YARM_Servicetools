@@ -34,7 +34,7 @@ class ServiceToolsDataCleaningController extends Controller
     public function fileNotFoundList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.files.fileNotFoundlist')->with(self::addFileNotFoundData($q));
+        return view('servicetools::fileNotFoundlist')->with(self::addFileNotFoundData($q));
     }
 
     public function commentsOnIllustrationsList()
