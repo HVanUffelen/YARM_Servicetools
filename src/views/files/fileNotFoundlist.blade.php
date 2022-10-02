@@ -2,7 +2,7 @@
 {{App()->setLocale(Session::get('userLanguage'))}}
 
  @section('content')
-    @include('files.inc.file_modal')
+    @include('servicetools::files.inc.file_modal')
     <div class="card">
         <div class="card-header">
             <h3>@lang('Unfound files')
