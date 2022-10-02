@@ -21,4 +21,8 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=>'dlbt'
 
     Route::get('/getCOP', 'ServiceToolsDataCleaningController@getCommentsOnPublication')
         ->name('get_COP');
+
+    // Get original title
+    Route::get('/originalTitles', 'ServiceToolsDataCleaningController@originalTitleList')
+        ->name('original_titles');
 });
