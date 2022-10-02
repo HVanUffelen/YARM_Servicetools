@@ -547,5 +547,14 @@ class ServiceToolsDataCleaningController extends Controller
         return redirect()->back()->with('alert-success',  __('VIAF data updated') . ' (' . $count . ' names)');
     }
 
+    public function getCommentsOnPublication(Request $request)
+    {
+        try {
+            return Ref::select('id', 'title', 'subtitle', 'comments_on_publication')->find($request->id);
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
+
 
 }

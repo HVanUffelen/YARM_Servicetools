@@ -19,5 +19,6 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=>'dlbt'
     Route::post('/editCOP', 'ServiceToolsDataCleaningController@editCommentsOnPublication')
         ->name('edit_COP');
 
-
+    Route::get('/getCOP', 'ServiceToolsDataCleaningController@getCommentsOnPublication')
+        ->name('get_COP');
 });
