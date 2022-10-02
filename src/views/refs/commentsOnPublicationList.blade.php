@@ -2,7 +2,7 @@
 {{App()->setLocale(Session::get('userLanguage'))}}
 
 @section('content')
-    @include('refs.inc.commentsOnPublication_modal')
+    @include('servicetools::refs.inc.commentsOnPublication_modal')
     <div class="card">
         <div class="card-header">
             <h3>@lang('Comments on publication')
