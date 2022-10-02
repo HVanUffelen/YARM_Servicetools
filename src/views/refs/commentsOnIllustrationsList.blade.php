@@ -12,7 +12,7 @@
             {!! Form::text('search', '', ['class' => 'form-control', 'placeholder' => __('Search by name')]) !!}
         </div>
         <div class="card-body">
-            @include('refs.inc.commentsOnIllustraions_data')
+            @include('servicetools::refs.inc.commentsOnIllustrations_data')
         </div>
     </div>
     <input type="hidden" name="type" id="type" value="{{'commentsOnIllustrations'}}"/>
