@@ -40,37 +40,37 @@ class ServiceToolsDataCleaningController extends Controller
     public function commentsOnIllustrationsList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.refs.commentsOnIllustrationsList')->with(self::addCommentsOnIllustrations($q));
+        return view('servicetools::refs.commentsOnIllustrationsList')->with(self::addCommentsOnIllustrations($q));
     }
 
     public function commentsOnTranslationList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.refs.commentsOnTranslationList')->with(self::addCommentsOnTranslations($q));
+        return view('servicetools::refs.commentsOnTranslationList')->with(self::addCommentsOnTranslations($q));
     }
 
     public function commentsOnPrefacePostfaceList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.refs.commentsOnPrefacePostfaceList')->with(self::addCommentsOnPrefacePostface($q));
+        return view('servicetools::refs.commentsOnPrefacePostfaceList')->with(self::addCommentsOnPrefacePostface($q));
     }
 
     public function commentsOnPublicationList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.refs.commentsOnPublicationList')->with(self::addCommentsOnPublication($q));
+        return view('servicetools::refs.commentsOnPublicationList')->with(self::addCommentsOnPublication($q));
     }
 
     public function originalTitleList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.refs.originalTitleList')->with(self::addOriginalTitles($q));
+        return view('servicetools::refs.originalTitleList')->with(self::addOriginalTitles($q));
     }
 
     public function publisherList()
     {
         $q = '';
-        return view('dlbt.data_cleaning.refs.publisherList')->with(self::addPublishers($q));
+        return view('servicetools::refs.publisherList')->with(self::addPublishers($q));
     }
 
     static function addPublishers($q)
