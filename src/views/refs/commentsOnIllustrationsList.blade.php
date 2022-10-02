@@ -1,4 +1,4 @@
-@extends('resources.views.layouts.app')
+@extends('layouts.app')
 {{App()->setLocale(Session::get('userLanguage'))}}
 
 @section('content')
