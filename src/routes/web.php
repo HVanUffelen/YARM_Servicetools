@@ -25,4 +25,11 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=>'dlbt'
     // Get original title
     Route::get('/originalTitles', 'ServiceToolsDataCleaningController@originalTitleList')
         ->name('original_titles');
+
+    // Get publishers
+    Route::get('/publishers', 'ServiceToolsDataCleaningController@publisherList')
+        ->name('publishers');
+
+    Route::post('/confirmPublisher', 'ServiceToolsDataCleaningController@confirmPublisher')
+        ->name('confirm_publisher');
 });
