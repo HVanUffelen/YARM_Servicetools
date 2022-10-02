@@ -1,4 +1,4 @@
-@extends('resources.views.layouts.app')
+@extends('layouts.app')
 {{App()->setLocale(Session::get('userLanguage'))}}
 
 @section('content')
@@ -12,7 +12,7 @@
             {!! Form::text('search', '', ['class' => 'form-control', 'placeholder' => __('Search by name')]) !!}
         </div>
         <div class="card-body">
-            @include('refs.inc.commentsOnTranslation_data')
+            @include('Servicetools::refs.inc.commentsOnTranslation_data')
         </div>
     </div>
     <input type="hidden" name="type" id="type" value="{{'commentsOnTranslation'}}"/>

@@ -1,4 +1,4 @@
-@extends('resources.views.layouts.app')
+@extends('layouts.app')
 {{App()->setLocale(Session::get('userLanguage'))}}
 
 @section('content')
@@ -18,7 +18,7 @@
         </div>
         <div class="card-body">
             {!! Form::open(['id' => 'publisherConfirm', 'action' => 'DataCleaningController@confirmPublisher', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-            @include('refs.inc.publisher_data')
+            @include('Servicetools::refs.inc.publisher_data')
             {!! Form::close() !!}
         </div>
     </div>
