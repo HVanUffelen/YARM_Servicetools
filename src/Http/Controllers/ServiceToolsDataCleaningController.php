@@ -395,7 +395,7 @@ class ServiceToolsDataCleaningController extends Controller
 
         //try to store to Elasticsearch (if package = present)
         if (config('elasticsearch.elasticsearch_present') == 'True'){
-            ElasticsearchController::upload2ElasticSearch(true, null);
+            \Yarm\Elasticsearch\Http\Controllers\ElasticsearchController::upload2ElasticSearch(true, null);
         }
 
 
