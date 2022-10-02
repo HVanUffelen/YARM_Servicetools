@@ -416,7 +416,7 @@ class ServiceToolsDataCleaningController extends Controller
 
             //upload to Elasticsearch (if package is present)
             if (config('elasticsearch.elasticsearch_present') == 'True') {
-                ElasticsearchController::upload2ElasticSearch(false, $request->id);
+                \Yarm\Elasticsearch\Http\Controllers\ElasticsearchController::upload2ElasticSearch(false, $request->id);
             }
 
             return [$file, DataCleaningController::findLocalFile($file), Storage::has('DLBTUploads/' . $request->new_local_name)];
