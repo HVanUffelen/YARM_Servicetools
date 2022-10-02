@@ -19,7 +19,7 @@
             {!! Form::text('search', '', ['class' => 'form-control', 'placeholder' => __('Search by name')]) !!}
         </div>
         <div class="card-body">
-            @include('files.inc.fileNotFound_data')
+            @include('servicetools::files.inc.fileNotFound_data')
         </div>
     </div>
     <a class="btn btn-primary text-white float-right mt-3" href="{{ route('change_file_names') }}">
