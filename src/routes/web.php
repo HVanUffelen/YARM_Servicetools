@@ -41,6 +41,28 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=>'dlbt'
     Route::post('/change_file', 'ServiceToolsDataCleaningController@changeOneFileName')
         ->name('change_file');
 
+//Routes for upload data
+//Route::get('upload4dlbt', 'upload4dlbtController@upload4dlbt')->name('upload4dlbt');
 
+//Upload refbase to yarmCore Todo changes for Laravel!!
+//Route::get('uploadRefbase2yarmCore', 'refb2yarmCore');
+
+//Route::get('addRefs2Groups', 'upload4dlbtController@addRefs2Groups')->name('addRefs2Groups');
+//Route::get('hashRefs', 'upload4dlbtController@hashRefs')->name('hashRefs');
+//Route::get('upload2ElSearch', 'ElasticsearchController@upload2ElasticSearch');
+//Route::get('updateAllFieldsELSearch', 'ElasticsearchController@updateAllFieldsElasticSearch');
+//Route::get('import_djack', '\upload4dlbtController@import_djack');
+//Route::get('convert_dataLF', 'convertDataLFtoRIS@import_dletterenfonds');
+//Route::get('moveLocation', 'moveLocation@moveLocation');
+//Route::get('reloadTranslations', 'upload4dlbtController@reloadTranslations');
+//Route::get('upload_places', 'upload4dlbtController@uploadPlaces');
+//Route::get('change_file_names', 'upload4dlbtController@changeFileNames');
+//Route::get('cleanOriginalTitle', 'CleanOriginalTitle@moveCommentsInOriginalTitle');
+//Route::get('CleanCommentsOnIll', 'CleanCommentsOnIll@moveNamesIllustrator');
+//Route::get('CleanCommentsPrPo', 'CleanCommentsOnPrPo@moveNamesPrefacePostface');
+//Route::get('Move2Subtitle', 'Move2Subtitle@move2subtitle');
+//Route::get('showDuplicates', 'showDuplicates@showDuplicates');
+//Route::get('updateViaf', 'ServiceToolsDatacleaningController@updateViaf');
+//Route::get('HashRefs', 'HashRefsController@Hash');
 
 });
