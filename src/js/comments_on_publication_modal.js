@@ -6,7 +6,7 @@
             $.ajax({
                 type: 'GET',
                 data: {id},
-                url: '/dlbt/getCOP',
+                url: '/' + YARM.sys_name + '/getCOP',
                 success: function (data) {
                     var form = $('#modal').parents('form');
 
@@ -27,7 +27,7 @@
                 $.ajax({
                     type: 'POST',
                     data: form.serialize(),
-                    url: '/dlbt/editCOP',
+                    url: '/' + YARM.sys_name + '/editCOP',
                     success: function (data) {
                         var row = $(document).find('#tblData-id_' + data.ref_id);
                         for (var attr in data) {
@@ -38,6 +38,6 @@
                 $('#modal').modal('hide');
             }
         });
-     };
-     $(document).ready(onready);
+    };
+    $(document).ready(onready);
 }(jQuery));

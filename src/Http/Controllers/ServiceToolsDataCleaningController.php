@@ -109,10 +109,10 @@ class ServiceToolsDataCleaningController extends Controller
                     }
                 }
             }
-            return redirect('/dlbt/publishers/?page=' . $request->pageUrl)
+            return redirect('/ydbviews/publishers/?page=' . $request->pageUrl)
                 ->with('alert-success', 'Succesfully changed publisher for Ref(s) with id(s) ' . implode(", ", $changed_ids) . ' to "' . $request->edit . '".');
         } catch (\Throwable $th) {
-            return redirect('/dlbt/publishers/?page=' . $request->pageUrl)
+            return redirect('/' .  strtolower(config('yarm.sys_name')) . '/publishers/?page=' . $request->pageUrl)
                 ->with('alert-danger', $th);
         }
     }
@@ -334,7 +334,7 @@ class ServiceToolsDataCleaningController extends Controller
 
     public static function findLocalFile($file)
     {
-        $allLocalFiles = Storage::allFiles('DLBTUploads');
+        $allLocalFiles = Storage::allFiles('YARMDBUploads');
         $validChars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz123456789_,. ';
 
         try {
@@ -386,7 +386,7 @@ class ServiceToolsDataCleaningController extends Controller
                 $localName = str_replace('ü', 'Б', $localName);
                 $localName = str_replace('ä', 'Д', $localName);
                 $localName = str_replace('ß', 'c', $localName);
-                Storage::move('DLBTUploads/' . $localName, 'DLBTUploads/' . $file->name);
+                Storage::move('YARMDBUploads/' . $localName, 'YARMDBUploads/' . $file->name);
                 array_push($successIds, $file->id);
             } catch (\Throwable $th) {
                 array_push($failedIds, $file->id);
@@ -411,7 +411,7 @@ class ServiceToolsDataCleaningController extends Controller
             $file->name = $request->name;
             $file->update();
             if ($request->local_name != $request->new_local_name) {
-                Storage::move('DLBTUploads/' . $request->local_name, 'DLBTUploads/' . $request->new_local_name);
+                Storage::move('YARMDBUploads/' . $request->local_name, 'YARMDBUploads/' . $request->new_local_name);
             }
 
             //upload to Elasticsearch (if package is present)
@@ -419,7 +419,7 @@ class ServiceToolsDataCleaningController extends Controller
                 \Yarm\Elasticsearch\Http\Controllers\ElasticsearchController::upload2ElasticSearch(false, $request->id);
             }
 
-            return [$file, DataCleaningController::findLocalFile($file), Storage::has('DLBTUploads/' . $request->new_local_name)];
+            return [$file, DataCleaningController::findLocalFile($file), Storage::has('YARMDBUploads/' . $request->new_local_name)];
         } catch (\Throwable $th) {
             return $th;
         }

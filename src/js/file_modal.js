@@ -26,7 +26,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: '/dlbt/change_file',
+                    url: '/' + YARM.sys_name + '/change_file',
                     data: { id, name, local_name, new_local_name },
                     success: function (data) {
                         var file = data[0];

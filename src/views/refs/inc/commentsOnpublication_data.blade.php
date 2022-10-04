@@ -24,7 +24,7 @@
                         <a href="{{action('RefController@edit', [
                                 'ref'=>$cop->ref_id,
                                 'redirect'=>true,
-                                'pageUrl'=>'dlbt/commentsOnPublication',
+                                'pageUrl'=> strtolower(config('yarm.sys_name')) . '/commentsOnPublication',
                                 'page'=>$comments_on_publication->currentPage(),
                             ])}}" data-placement="top" data-toggle="popover"
                                 data-trigger="hover" data-content="@lang('Edit reference')">

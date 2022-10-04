@@ -25,7 +25,7 @@
                         <a href="{{action('RefController@edit', [
                                 'ref'=>$p->ref_id,
                                 'redirect'=>true,
-                                'pageUrl'=>'dlbt/publishers',
+                                'pageUrl'=>  strtolower(config('yarm.sys_name')) . '/publishers',
                                 'page'=>$publishers->currentPage(),
                             ])}}" data-placement="top" data-toggle="popover"
                                 data-trigger="hover" data-content="@lang('Edit reference')">

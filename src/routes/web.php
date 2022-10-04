@@ -1,5 +1,5 @@
 <?php
-Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=>'dlbt','middleware'=>['web']], function (){
+Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=> strtolower(config('yarm.sys_name')),'middleware'=>['web']], function (){
 
     // Get comments on illustrations
     Route::get('/commentsOnIllustrations', 'ServiceToolsDataCleaningController@commentsOnIllustrationsList')

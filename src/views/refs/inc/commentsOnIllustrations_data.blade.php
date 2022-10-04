@@ -20,7 +20,7 @@
                         <a href="{{action('RefController@edit', [
                                 'ref'=>$coi->ref_id,
                                 'redirect'=>true,
-                                'pageUrl'=>'dlbt/commentsOnIllustrations',
+                                'pageUrl'=> strtolower(config('yarm.sys_name')) . '/commentsOnIllustrations',
                                 'page'=>$comments_on_illustrations->currentPage(),
                             ])}}" data-placement="top" data-toggle="popover"
                                 data-trigger="hover" data-content="@lang('Edit reference')">

@@ -22,7 +22,8 @@ class ServicetoolsServiceProvider extends ServiceProvider{
 
 
         //after every update
-        //run   php artisan vendor:publish --provider="Yarm\Servicetools\ServicetoolsServiceProvider" --tag="servicetools" --force
+        //run
+
     }
 
     public function register()

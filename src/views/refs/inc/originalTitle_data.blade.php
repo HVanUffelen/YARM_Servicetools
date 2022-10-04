@@ -20,7 +20,7 @@
                         <a href="{{action('RefController@edit', [
                                 'ref'=>$ot->ref_id,
                                 'redirect'=>true,
-                                'pageUrl'=>'dlbt/originalTitles',
+                                'pageUrl'=>  strtolower(config('yarm.sys_name')) . '/originalTitles',
                                 'page'=>$original_titles->currentPage(),
                             ])}}" data-placement="top" data-toggle="popover"
                                 data-trigger="hover" data-content="@lang('Edit reference')">
