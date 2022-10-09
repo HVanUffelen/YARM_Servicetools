@@ -2,6 +2,6 @@
 
 return [
 
-  'servicetools_present' => "True"
+  'servicetools_present' => true
 
 ];
