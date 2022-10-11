@@ -22,7 +22,7 @@ class ServicetoolsServiceProvider extends ServiceProvider{
 
 
         //after every update
-        //run
+        //run php artisan vendor:publish --provider="Yarm\Servicetools\ServicetoolsServiceProvider" --tag="servicetools" --force
 
     }
 
