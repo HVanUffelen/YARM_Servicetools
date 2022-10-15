@@ -49,8 +49,6 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=> strto
 
 //Route::get('addRefs2Groups', 'upload4dlbtController@addRefs2Groups')->name('addRefs2Groups');
 //Route::get('hashRefs', 'upload4dlbtController@hashRefs')->name('hashRefs');
-//Route::get('upload2ElSearch', 'ElasticsearchController@upload2ElasticSearch');
-//Route::get('updateAllFieldsELSearch', 'ElasticsearchController@updateAllFieldsElasticSearch');
 //Route::get('import_djack', '\upload4dlbtController@import_djack');
 //Route::get('convert_dataLF', 'convertDataLFtoRIS@import_dletterenfonds');
 //Route::get('moveLocation', 'moveLocation@moveLocation');
