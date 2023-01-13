@@ -556,5 +556,10 @@ class ServiceToolsDataCleaningController extends Controller
         }
     }
 
+    public function CDZP()
+    {
+        dd('Hallo');
+    }
+
 
 }
