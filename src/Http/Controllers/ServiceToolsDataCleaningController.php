@@ -559,6 +559,7 @@ class ServiceToolsDataCleaningController extends Controller
     public function CDZP()
     {
         $refs = Ref::where('place','!=', '');
+        dd($refs);
     }
 
 
