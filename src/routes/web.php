@@ -62,5 +62,5 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=> strto
 //Route::get('showDuplicates', 'showDuplicates@showDuplicates');
 //Route::get('updateViaf', 'ServiceToolsDatacleaningController@updateViaf');
 //Route::get('HashRefs', 'HashRefsController@Hash');
-
+Route::get('CDZ_place', 'ChangeDataZoologie@CDZP');
 });
