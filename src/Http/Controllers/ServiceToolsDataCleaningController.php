@@ -112,14 +112,14 @@ class ServiceToolsDataCleaningController extends Controller
             return redirect('/ydbviews/publishers/?page=' . $request->pageUrl)
                 ->with('alert-success', 'Succesfully changed publisher for Ref(s) with id(s) ' . implode(", ", $changed_ids) . ' to "' . $request->edit . '".');
         } catch (\Throwable $th) {
-            return redirect('/' .  strtolower(config('yarm.sys_name')) . '/publishers/?page=' . $request->pageUrl)
+            return redirect('/' . strtolower(config('yarm.sys_name')) . '/publishers/?page=' . $request->pageUrl)
                 ->with('alert-danger', $th);
         }
     }
 
     static function addCommentsOnPublication($q)
     {
-        $colNames = ['ref_id','title','subtitle','comments_on_publication'];
+        $colNames = ['ref_id', 'title', 'subtitle', 'comments_on_publication'];
         $paginationValue = PaginationController::getPaginationItemCount();
 
         $query = Ref::select('id as ref_id', 'title', 'subtitle', 'comments_on_publication')
@@ -162,7 +162,7 @@ class ServiceToolsDataCleaningController extends Controller
 
     static function addOriginalTitles($q)
     {
-        $colNames = ['ref_id','original_title'];
+        $colNames = ['ref_id', 'original_title'];
         $paginationValue = PaginationController::getPaginationItemCount();
 
         $query = Ref::select('id as ref_id', 'orig_title as original_title');
@@ -180,7 +180,7 @@ class ServiceToolsDataCleaningController extends Controller
 
         if (Storage::exists('/' . 'exeptionsEditCOOriTitle.txt')) {
             $exeptions = explode(',', Storage::get('/' . 'exeptionsCOOriTitle.txt'));
-            foreach ($exeptions as $exeption){
+            foreach ($exeptions as $exeption) {
                 $query->where('orig_title', 'not like', '%' . $exeption . '%');
             }
         }
@@ -199,21 +199,21 @@ class ServiceToolsDataCleaningController extends Controller
 
     static function addCommentsOnTranslations($q)
     {
-        $colNames = ['ref_id','comments_on_translation'];
+        $colNames = ['ref_id', 'comments_on_translation'];
         $paginationValue = PaginationController::getPaginationItemCount();
 
         $query = Ref::select('id as ref_id', 'comments_on_translation')
             ->whereNotNull('comments_on_translation');
 
         if (Storage::exists('/' . 'exeptionsCOTr.txt')) {
-            $exeptions = explode('#',Storage::get('/' . 'exeptionsCOTr.txt'));
+            $exeptions = explode('#', Storage::get('/' . 'exeptionsCOTr.txt'));
 
-            $query->where(function ($query) use ($exeptions){
+            $query->where(function ($query) use ($exeptions) {
                 $query->where(function ($query) {
-                    $query->where('comments_on_translation','!=','');
+                    $query->where('comments_on_translation', '!=', '');
                 });
-            })->where(function ($query) use ($exeptions){
-                foreach ($exeptions as $exeption){
+            })->where(function ($query) use ($exeptions) {
+                foreach ($exeptions as $exeption) {
                     $query->Where('comments_on_translation', '!=', $exeption);
                 };
             });
@@ -233,7 +233,7 @@ class ServiceToolsDataCleaningController extends Controller
 
     static function addCommentsOnIllustrations($q)
     {
-        $colNames = ['ref_id','comments_on_illustrations'];
+        $colNames = ['ref_id', 'comments_on_illustrations'];
         $paginationValue = PaginationController::getPaginationItemCount();
 
         // $commentsOnTranslations = array_unique(Ref::where('comments_on_translations','!=', '')->pluck('commments_on_translations'),asc);
@@ -242,15 +242,15 @@ class ServiceToolsDataCleaningController extends Controller
             ->whereNotNull('comments_on_illustrations');
 
         if (Storage::exists('/' . 'exeptionsCOIll.txt')) {
-            $exeptions = explode(',',Storage::get('/' . 'exeptionsCOIll.txt'));
+            $exeptions = explode(',', Storage::get('/' . 'exeptionsCOIll.txt'));
 
-            $query->where(function ($query) use ($exeptions){
+            $query->where(function ($query) use ($exeptions) {
                 $query->where(function ($query) {
                     $query->whereNotNull('comments_on_illustrations');
-                    $query->where('comments_on_illustrations','!=','');
+                    $query->where('comments_on_illustrations', '!=', '');
                 });
-            })->Where(function ($query) use ($exeptions){
-                foreach ($exeptions as $exeption){
+            })->Where(function ($query) use ($exeptions) {
+                foreach ($exeptions as $exeption) {
                     $query->where('comments_on_illustrations', '!=', $exeption);
                 }
             });
@@ -270,22 +270,22 @@ class ServiceToolsDataCleaningController extends Controller
 
     static function addCommentsOnPrefacePostface($q)
     {
-        $colNames = ['ref_id','comments_on_preface_postface'];
+        $colNames = ['ref_id', 'comments_on_preface_postface'];
         $paginationValue = PaginationController::getPaginationItemCount();
 
         $query = Ref::select('id as ref_id', 'comments_on_preface_postface')
             ->whereNotNull('comments_on_preface_postface');
 
         if (Storage::exists('/' . 'exeptionsCOIll.txt')) {
-            $exeptions = explode('#',Storage::get('/' . 'exeptionsCOPrPo.txt'));
+            $exeptions = explode('#', Storage::get('/' . 'exeptionsCOPrPo.txt'));
 
-            $query->where(function ($query) use ($exeptions){
+            $query->where(function ($query) use ($exeptions) {
                 $query->where(function ($query) {
                     $query->whereNotNull('comments_on_preface_postface');
-                    $query->where('comments_on_preface_postface','!=','');
+                    $query->where('comments_on_preface_postface', '!=', '');
                 });
-            })->Where(function ($query) use ($exeptions){
-                foreach ($exeptions as $exeption){
+            })->Where(function ($query) use ($exeptions) {
+                foreach ($exeptions as $exeption) {
                     $query->where('comments_on_preface_postface', '!=', $exeption);
                 }
             });
@@ -394,7 +394,7 @@ class ServiceToolsDataCleaningController extends Controller
         }
 
         //try to store to Elasticsearch (if package = present)
-        if (config('elasticsearch.elasticsearch_present') == true){
+        if (config('elasticsearch.elasticsearch_present') == true) {
             \Yarm\Elasticsearch\Http\Controllers\ElasticsearchController::upload2ElasticSearch(true, null);
         }
 
@@ -544,7 +544,7 @@ class ServiceToolsDataCleaningController extends Controller
             //error_log('Completed name: ' . $count . '/' . $total . ' (ID: ' . $name->id . ')');
         }
 
-        return redirect()->back()->with('alert-success',  __('VIAF data updated') . ' (' . $count . ' names)');
+        return redirect()->back()->with('alert-success', __('VIAF data updated') . ' (' . $count . ' names)');
     }
 
     public function getCommentsOnPublication(Request $request)
@@ -558,8 +558,28 @@ class ServiceToolsDataCleaningController extends Controller
 
     public function CDZP()
     {
-        $refs = Ref::where('place','!=', '');
-        dd($refs);
+        $query = Ref::leftJoin('group_ref', 'group_ref.ref_id', '=', 'refs.id');
+        $query->Where(function ($query) {
+            $query->orWhere('pages', 'like', '%-%');
+            $query->orWhere('physical_description', 'like', '%+ %');
+        });
+        $query->where('group_ref.group_id', '=', '3');
+        $result = $query->get();
+
+        foreach ($result as $dataSet) {
+            $pages = str_replace(['-', ' - '], '–', $dataSet->pages);
+            $description = ltrim($dataSet->physical_description, '+ ');
+            $description = str_replace(['-', ' - '], '–', $description);
+            $ref = Ref::find($dataSet->ref_id);
+            if (isset($ref)) {
+                $ref->pages = $pages;
+                $ref->physical_description = $description;
+                $ref->save();
+            }
+
+        }
+
+
     }
 
 

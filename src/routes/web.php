@@ -41,6 +41,10 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=> strto
     Route::post('/change_file', 'ServiceToolsDataCleaningController@changeOneFileName')
         ->name('change_file');
 
+//routes to clean YARM-Core zoologie
+//Route::get('CDZ_place', 'ServiceToolsDatacleaningController@CDZP');
+
+
 //Routes for upload data
 //Route::get('upload4dlbt', 'upload4dlbtController@upload4dlbt')->name('upload4dlbt');
 
@@ -62,5 +66,5 @@ Route::group(['namespace'=>'Yarm\Servicetools\Http\Controllers','prefix'=> strto
 //Route::get('showDuplicates', 'showDuplicates@showDuplicates');
 //Route::get('updateViaf', 'ServiceToolsDatacleaningController@updateViaf');
 //Route::get('HashRefs', 'HashRefsController@Hash');
-Route::get('CDZ_place', 'ServiceToolsDatacleaningController@CDZP');
+
 });
